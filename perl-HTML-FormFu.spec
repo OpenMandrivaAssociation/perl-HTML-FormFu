@@ -49,6 +49,7 @@ BuildRequires: perl(Template)
 BuildRequires: perl(Test::More)
 BuildRequires: perl(Test::NoWarnings)
 BuildRequires: perl(YAML::Syck)
+BuildRequires: perl(boolean)
 
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
