@@ -30,6 +30,7 @@ BuildRequires: perl(Email::Valid)
 BuildRequires: perl(Exporter)
 BuildRequires: perl(ExtUtils::MakeMaker)
 BuildRequires: perl(File::ShareDir)
+BuildRequires: perl(Hash::Flatten)
 BuildRequires: perl(HTML::Scrubber)
 BuildRequires: perl(HTML::TokeParser::Simple)
 BuildRequires: perl(HTTP::Headers)
@@ -48,6 +49,7 @@ BuildRequires: perl(Template)
 BuildRequires: perl(Test::More)
 BuildRequires: perl(Test::NoWarnings)
 BuildRequires: perl(YAML::Syck)
+
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
@@ -70,11 +72,10 @@ file. Examples will mainly be shown in the YAML manpage config syntax.
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
-
-%{make}
+%make
 
 %check
-%{make} test
+%make test
 
 %install
 rm -rf %buildroot
@@ -92,4 +93,3 @@ rm -rf %buildroot
 /usr/bin/html_formfu_dumpconf.pl
 /usr/share/man/man1/html_formfu_deploy.pl.1.lzma
 /usr/share/man/man1/html_formfu_dumpconf.pl.1.lzma
-
