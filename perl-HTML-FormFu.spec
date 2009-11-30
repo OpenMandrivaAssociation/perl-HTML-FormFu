@@ -3,7 +3,7 @@
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Release:    %mkrel 2
 
 Summary:    Strip shitespace from HTML output
 License:    GPL+ or Artistic
@@ -53,6 +53,8 @@ BuildRequires: perl(boolean)
 
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+
+Requires: perl(Regexp::Copy)
 
 %description
 the HTML::FormFu manpage is a HTML form framework which aims to be as easy
