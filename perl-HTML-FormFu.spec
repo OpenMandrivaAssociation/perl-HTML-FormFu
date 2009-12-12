@@ -48,7 +48,7 @@ BuildRequires: perl(Task::Weaken)
 BuildRequires: perl(Template)
 BuildRequires: perl(Test::More)
 BuildRequires: perl(Test::NoWarnings)
-BuildRequires: perl(YAML::Syck)
+BuildRequires: perl(YAML::XS)
 BuildRequires: perl(boolean)
 
 BuildArch: noarch
