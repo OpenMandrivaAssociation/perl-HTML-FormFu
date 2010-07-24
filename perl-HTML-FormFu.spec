@@ -44,7 +44,6 @@ BuildRequires: perl(Number::Format)
 BuildRequires: perl(Path::Class::File)
 BuildRequires: perl(Readonly)
 BuildRequires: perl(Regexp::Common)
-BuildRequires: perl(Regexp::Copy)
 BuildRequires: perl(Task::Weaken)
 BuildRequires: perl(Template)
 BuildRequires: perl(Test::More)
@@ -54,8 +53,6 @@ BuildRequires: perl(boolean)
 
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
-
-Requires: perl(Regexp::Copy)
 
 %description
 the HTML::FormFu manpage is a HTML form framework which aims to be as easy
@@ -90,7 +87,7 @@ rm -rf %buildroot
 
 %files
 %defattr(-,root,root)
-%doc Changes README
+%doc Changes README META.yml
 %{_mandir}/man3/*
 %perl_vendorlib/*
 /usr/bin/html_formfu_deploy.pl
