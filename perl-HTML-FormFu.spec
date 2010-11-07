@@ -1,40 +1,40 @@
 %define upstream_name    HTML-FormFu
-%define upstream_version 0.07003
+%define upstream_version 0.08002
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
 Release:    %mkrel 1
 
-Summary:    Strip shitespace from HTML output
+Summary:    HTML Form Management Framework for Perl
 License:    GPL+ or Artistic
 Group:      Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires: perl(CGI)
-BuildRequires: perl(Captcha::reCAPTCHA)
+BuildRequires: perl(Captcha::reCAPTCHA) >= 0.93
 BuildRequires: perl(Class::Accessor::Chained::Fast)
 BuildRequires: perl(Class::C3)
 BuildRequires: perl(Class::Factory::Util)
-BuildRequires: perl(Clone)
-BuildRequires: perl(Config::Any)
+BuildRequires: perl(Clone) >= 0.31
+BuildRequires: perl(Config::Any) >= 0.18
 BuildRequires: perl(Crypt::CBC)
 BuildRequires: perl(Crypt::DES)
 BuildRequires: perl(Data::Visitor)
 BuildRequires: perl(Data::Visitor::Callback)
 BuildRequires: perl(Date::Calc)
-BuildRequires: perl(DateTime)
-BuildRequires: perl(DateTime::Format::Builder)
+BuildRequires: perl(DateTime) >= 0.54
+BuildRequires: perl(DateTime::Format::Builder) >= 0.790.1
 BuildRequires: perl(DateTime::Format::Natural)
-BuildRequires: perl(DateTime::Format::Strptime)
-BuildRequires: perl(DateTime::Locale)
+BuildRequires: perl(DateTime::Format::Strptime) >= 1.200.0
+BuildRequires: perl(DateTime::Locale) >= 0.45
 BuildRequires: perl(Email::Valid)
 BuildRequires: perl(Exporter)
 BuildRequires: perl(ExtUtils::MakeMaker)
 BuildRequires: perl(File::ShareDir)
 BuildRequires: perl(HTML::Scrubber)
-BuildRequires: perl(HTML::TokeParser::Simple)
-BuildRequires: perl(HTTP::Headers)
+BuildRequires: perl(HTML::TokeParser::Simple) >= 3.14
+BuildRequires: perl(HTTP::Headers) >= 1.64
 BuildRequires: perl(Hash::Flatten)
 BuildRequires: perl(List::MoreUtils)
 BuildRequires: perl(List::Util)
@@ -46,7 +46,7 @@ BuildRequires: perl(Readonly)
 BuildRequires: perl(Regexp::Common)
 BuildRequires: perl(Task::Weaken)
 BuildRequires: perl(Template)
-BuildRequires: perl(Test::More)
+BuildRequires: perl(Test::More) >= 0.92
 BuildRequires: perl(Test::NoWarnings)
 BuildRequires: perl(YAML::XS)
 BuildRequires: perl(boolean)
@@ -55,7 +55,7 @@ BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
-the HTML::FormFu manpage is a HTML form framework which aims to be as easy
+HTML::FormFu is a HTML form framework which aims to be as easy
 as possible to use for basic web forms, but with the power and flexibility
 to do anything else you might want to do (as long as it involves forms).
 
@@ -92,5 +92,5 @@ rm -rf %buildroot
 %perl_vendorlib/*
 /usr/bin/html_formfu_deploy.pl
 /usr/bin/html_formfu_dumpconf.pl
-/usr/share/man/man1/html_formfu_deploy.pl.1.lzma
-/usr/share/man/man1/html_formfu_dumpconf.pl.1.lzma
+/usr/share/man/man1/html_formfu_deploy.pl.1.xz
+/usr/share/man/man1/html_formfu_dumpconf.pl.1.xz
