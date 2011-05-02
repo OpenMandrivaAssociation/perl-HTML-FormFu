@@ -1,9 +1,9 @@
 %define upstream_name    HTML-FormFu
-%define upstream_version 0.08002
+%define upstream_version 0.09002
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 
 Summary:    HTML Form Management Framework for Perl
 License:    GPL+ or Artistic
@@ -40,6 +40,8 @@ BuildRequires: perl(List::MoreUtils)
 BuildRequires: perl(List::Util)
 BuildRequires: perl(Locale::Maketext)
 BuildRequires: perl(Module::Pluggable)
+BuildRequires: perl(MooseX::Aliases)
+BuildRequires: perl(MooseX::ChainedAccessors::Accessor)
 BuildRequires: perl(Number::Format)
 BuildRequires: perl(Path::Class::File)
 BuildRequires: perl(Readonly)
