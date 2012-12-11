@@ -1,61 +1,61 @@
 %define upstream_name    HTML-FormFu
 %define upstream_version 0.09003
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
-Summary:    HTML Form Management Framework for Perl
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	HTML Form Management Framework for Perl
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(CGI)
-BuildRequires: perl(Captcha::reCAPTCHA) >= 0.93
-BuildRequires: perl(Class::Accessor::Chained::Fast)
-BuildRequires: perl(Class::C3)
-BuildRequires: perl(Class::Factory::Util)
-BuildRequires: perl(Clone) >= 0.31
-BuildRequires: perl(Config::Any) >= 0.18
-BuildRequires: perl(Crypt::CBC)
-BuildRequires: perl(Crypt::DES)
-BuildRequires: perl(Data::Visitor)
-BuildRequires: perl(Data::Visitor::Callback)
-BuildRequires: perl(Date::Calc)
-BuildRequires: perl(DateTime) >= 0.54
-BuildRequires: perl(DateTime::Format::Builder) >= 0.790.1
-BuildRequires: perl(DateTime::Format::Natural)
-BuildRequires: perl(DateTime::Format::Strptime) >= 1.200.0
-BuildRequires: perl(DateTime::Locale) >= 0.45
-BuildRequires: perl(Email::Valid)
-BuildRequires: perl(Exporter)
-BuildRequires: perl(ExtUtils::MakeMaker)
-BuildRequires: perl(File::ShareDir)
-BuildRequires: perl(HTML::Scrubber)
-BuildRequires: perl(HTML::TokeParser::Simple) >= 3.14
-BuildRequires: perl(HTTP::Headers) >= 1.64
-BuildRequires: perl(Hash::Flatten)
-BuildRequires: perl(List::MoreUtils)
-BuildRequires: perl(List::Util)
-BuildRequires: perl(Locale::Maketext)
-BuildRequires: perl(Module::Pluggable)
-BuildRequires: perl(MooseX::Aliases)
-BuildRequires: perl(MooseX::SetOnce)
-BuildRequires: perl(MooseX::ChainedAccessors::Accessor)
-BuildRequires: perl(Number::Format)
-BuildRequires: perl(Path::Class::File)
-BuildRequires: perl(Readonly)
-BuildRequires: perl(Regexp::Common)
-BuildRequires: perl(Task::Weaken)
-BuildRequires: perl(Template)
-BuildRequires: perl(Test::More) >= 0.92
-BuildRequires: perl(Test::NoWarnings)
-BuildRequires: perl(YAML::XS)
-BuildRequires: perl(boolean)
+BuildRequires:	perl-devel
+BuildRequires:	perl(CGI)
+BuildRequires:	perl(Captcha::reCAPTCHA) >= 0.93
+BuildRequires:	perl(Class::Accessor::Chained::Fast)
+BuildRequires:	perl(Class::C3)
+BuildRequires:	perl(Class::Factory::Util)
+BuildRequires:	perl(Clone) >= 0.31
+BuildRequires:	perl(Config::Any) >= 0.18
+BuildRequires:	perl(Crypt::CBC)
+BuildRequires:	perl(Crypt::DES)
+BuildRequires:	perl(Data::Visitor)
+BuildRequires:	perl(Data::Visitor::Callback)
+BuildRequires:	perl(Date::Calc)
+BuildRequires:	perl(DateTime) >= 0.54
+BuildRequires:	perl(DateTime::Format::Builder) >= 0.790.1
+BuildRequires:	perl(DateTime::Format::Natural)
+BuildRequires:	perl(DateTime::Format::Strptime) >= 1.200.0
+BuildRequires:	perl(DateTime::Locale) >= 0.45
+BuildRequires:	perl(Email::Valid)
+BuildRequires:	perl(Exporter)
+BuildRequires:	perl(ExtUtils::MakeMaker)
+BuildRequires:	perl(File::ShareDir)
+BuildRequires:	perl(HTML::Scrubber)
+BuildRequires:	perl(HTML::TokeParser::Simple) >= 3.14
+BuildRequires:	perl(HTTP::Headers) >= 1.64
+BuildRequires:	perl(Hash::Flatten)
+BuildRequires:	perl(List::MoreUtils)
+BuildRequires:	perl(List::Util)
+BuildRequires:	perl(Locale::Maketext)
+BuildRequires:	perl(Module::Pluggable)
+BuildRequires:	perl(MooseX::Aliases)
+BuildRequires:	perl(MooseX::SetOnce)
+BuildRequires:	perl(MooseX::ChainedAccessors::Accessor)
+BuildRequires:	perl(Number::Format)
+BuildRequires:	perl(Path::Class::File)
+BuildRequires:	perl(Readonly)
+BuildRequires:	perl(Regexp::Common)
+BuildRequires:	perl(Task::Weaken)
+BuildRequires:	perl(Template)
+BuildRequires:	perl(Test::More) >= 0.92
+BuildRequires:	perl(Test::NoWarnings)
+BuildRequires:	perl(YAML::XS)
+BuildRequires:	perl(boolean)
 
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildArch:	noarch
 
 %description
 HTML::FormFu is a HTML form framework which aims to be as easy
@@ -75,25 +75,76 @@ file. Examples will mainly be shown in the YAML manpage config syntax.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README META.yml
+%{perl_vendorlib}/*
+%{_bindir}/html_formfu_deploy.pl
+%{_bindir}/html_formfu_dumpconf.pl
+%{_mandir}/man1/*
 %{_mandir}/man3/*
-%perl_vendorlib/*
-/usr/bin/html_formfu_deploy.pl
-/usr/bin/html_formfu_dumpconf.pl
-/usr/share/man/man1/html_formfu_deploy.pl.1.xz
-/usr/share/man/man1/html_formfu_dumpconf.pl.1.xz
+
+%changelog
+* Thu May 12 2011 Guillaume Rousse <guillomovitch@mandriva.org> 0.90.30-1mdv2011.0
++ Revision: 673797
+- update to new version 0.09003
+
+* Mon May 02 2011 Guillaume Rousse <guillomovitch@mandriva.org> 0.90.20-1
++ Revision: 662727
+- new version
+
+* Sun Apr 17 2011 Funda Wang <fwang@mandriva.org> 0.80.20-2
++ Revision: 654341
+- rebuild for updated spec-helper
+
+* Sun Nov 07 2010 Shlomi Fish <shlomif@mandriva.org> 0.80.20-1mdv2011.0
++ Revision: 594699
+- Bump version, add requires bersions, improved the desc+summary, and fixed the man pages
+
+* Fri Sep 03 2010 Jérôme Quelin <jquelin@mandriva.org> 0.70.30-1mdv2011.0
++ Revision: 575596
+- update to 0.07003
+- bump mkrel
+- recent version does not require Regexp::Copy, which does not compile against 5.12
+
+* Tue Jul 13 2010 Jérôme Quelin <jquelin@mandriva.org> 0.70.20-1mdv2011.0
++ Revision: 552370
+- adding missing buildrequires:
+- update to 0.07002
+
+* Sat Jan 09 2010 Jérôme Quelin <jquelin@mandriva.org> 0.60.10-1mdv2010.1
++ Revision: 487936
+- update to 0.06001
+
+* Sat Dec 12 2009 Jérôme Quelin <jquelin@mandriva.org> 0.60.0-1mdv2010.1
++ Revision: 477637
+- update buildrequires:
+- update to 0.06000
+
+* Fri Dec 04 2009 Jérôme Quelin <jquelin@mandriva.org> 0.50.40-1mdv2010.1
++ Revision: 473272
+- update to 0.05004
+
+* Mon Nov 30 2009 Jérôme Quelin <jquelin@mandriva.org> 0.50.20-2mdv2010.1
++ Revision: 471676
+- adding missing requires:
+
+* Sun Nov 29 2009 Jérôme Quelin <jquelin@mandriva.org> 0.50.20-1mdv2010.1
++ Revision: 471459
+- adding missing builrequires
+- adding missing buildrequires:
+- remove duplicate buildrequires:
+- adding missing buildrequires:
+- import perl-HTML-FormFu
+
+
+* Sun Nov 29 2009 cpan2dist 0.05002-1mdv
+- initial mdv release, generated with cpan2dist
