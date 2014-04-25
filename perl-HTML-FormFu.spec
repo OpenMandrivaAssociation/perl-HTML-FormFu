@@ -13,6 +13,7 @@ Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
+BuildRequires: perl(File::ShareDir::Install)
 BuildRequires:	perl(CGI)
 BuildRequires:	perl(Captcha::reCAPTCHA) >= 0.93
 BuildRequires:	perl(Class::Accessor::Chained::Fast)
