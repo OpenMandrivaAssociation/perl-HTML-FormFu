@@ -1,11 +1,12 @@
 %define upstream_name    HTML-FormFu
-%define upstream_version 0.09003
+%define upstream_version 2.00
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	1
 
 Summary:	HTML Form Management Framework for Perl
+
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
@@ -92,59 +93,4 @@ perl Makefile.PL INSTALLDIRS=vendor
 %{_mandir}/man1/*
 %{_mandir}/man3/*
 
-%changelog
-* Thu May 12 2011 Guillaume Rousse <guillomovitch@mandriva.org> 0.90.30-1mdv2011.0
-+ Revision: 673797
-- update to new version 0.09003
 
-* Mon May 02 2011 Guillaume Rousse <guillomovitch@mandriva.org> 0.90.20-1
-+ Revision: 662727
-- new version
-
-* Sun Apr 17 2011 Funda Wang <fwang@mandriva.org> 0.80.20-2
-+ Revision: 654341
-- rebuild for updated spec-helper
-
-* Sun Nov 07 2010 Shlomi Fish <shlomif@mandriva.org> 0.80.20-1mdv2011.0
-+ Revision: 594699
-- Bump version, add requires bersions, improved the desc+summary, and fixed the man pages
-
-* Fri Sep 03 2010 Jérôme Quelin <jquelin@mandriva.org> 0.70.30-1mdv2011.0
-+ Revision: 575596
-- update to 0.07003
-- bump mkrel
-- recent version does not require Regexp::Copy, which does not compile against 5.12
-
-* Tue Jul 13 2010 Jérôme Quelin <jquelin@mandriva.org> 0.70.20-1mdv2011.0
-+ Revision: 552370
-- adding missing buildrequires:
-- update to 0.07002
-
-* Sat Jan 09 2010 Jérôme Quelin <jquelin@mandriva.org> 0.60.10-1mdv2010.1
-+ Revision: 487936
-- update to 0.06001
-
-* Sat Dec 12 2009 Jérôme Quelin <jquelin@mandriva.org> 0.60.0-1mdv2010.1
-+ Revision: 477637
-- update buildrequires:
-- update to 0.06000
-
-* Fri Dec 04 2009 Jérôme Quelin <jquelin@mandriva.org> 0.50.40-1mdv2010.1
-+ Revision: 473272
-- update to 0.05004
-
-* Mon Nov 30 2009 Jérôme Quelin <jquelin@mandriva.org> 0.50.20-2mdv2010.1
-+ Revision: 471676
-- adding missing requires:
-
-* Sun Nov 29 2009 Jérôme Quelin <jquelin@mandriva.org> 0.50.20-1mdv2010.1
-+ Revision: 471459
-- adding missing builrequires
-- adding missing buildrequires:
-- remove duplicate buildrequires:
-- adding missing buildrequires:
-- import perl-HTML-FormFu
-
-
-* Sun Nov 29 2009 cpan2dist 0.05002-1mdv
-- initial mdv release, generated with cpan2dist
